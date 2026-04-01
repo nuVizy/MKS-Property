@@ -7,40 +7,42 @@ const Home: React.FC = () => {
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center">
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
         {/* Background Image Parallax-ish */}
         <div className="absolute inset-0 z-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center"
+          <div
+            className="absolute inset-[-1.75rem] scale-[1.04] bg-cover bg-center blur-[3px]"
             style={{ backgroundImage: "url('/pexels-the-ghazi-2152398165-33314763.jpg')" }}
-          ></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/18 to-transparent"></div>
+          />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_36%)]" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/62 via-black/28 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-black/44 to-black/34" />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-6 max-w-5xl mx-auto fade-in-up">
-          <div className="inline-flex items-center justify-center space-x-3 mb-8 opacity-90">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 py-16 text-center text-white drop-shadow-[0_14px_36px_rgba(0,0,0,0.32)] sm:py-20 lg:py-24 fade-in-up">
+          <div className="mb-8 inline-flex items-center justify-center space-x-3 opacity-90">
             <div className="h-[1px] w-8 bg-brand-gold"></div>
             <p className="text-xs md:text-sm tracking-[0.4em] uppercase font-light">Paphos • Cyprus</p>
             <div className="h-[1px] w-8 bg-brand-gold"></div>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-serif font-thin mb-10 leading-[1.1] tracking-tight">
+          <h1 className="mb-10 text-[3.35rem] font-serif font-thin leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
             Elevating <span className="italic font-normal text-white">Living</span> <br /> 
             Spaces & Experiences
           </h1>
           
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-            <Button asChild size="xl" variant="inverse" className="min-w-[13rem]">
+          <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:gap-6">
+            <Button asChild size="xl" variant="primary" className="min-w-[13rem]">
               <Link to="/about">
-                <span className="text-xs tracking-widest-plus uppercase font-medium">
+                <span className="text-xs tracking-widest-plus uppercase font-medium text-white">
                   Meet Mikaela
                 </span>
               </Link>
             </Button>
             <Button asChild size="xl" variant="inverse" className="min-w-[13rem]">
               <Link to="/services">
-                <span className="text-xs tracking-widest-plus uppercase font-medium">
+                <span className="text-xs tracking-widest-plus uppercase font-medium text-white">
                   Our Services
                 </span>
               </Link>
@@ -49,7 +51,7 @@ const Home: React.FC = () => {
         </div>
         
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce opacity-60">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce opacity-60 sm:bottom-10">
             <div className="w-[1px] h-16 bg-gradient-to-b from-transparent via-white to-transparent"></div>
         </div>
       </section>
@@ -65,7 +67,7 @@ const Home: React.FC = () => {
             <p className="font-light text-brand-charcoal/72 leading-loose mb-12 max-w-2xl mx-auto text-sm md:text-base">
               Dedicated and experienced property management committed to excellence. With a strong background in managing diverse property portfolios, MKS brings a hands-on, detail-oriented approach to every project.
             </p>
-            <Button asChild size="lg" variant="primary">
+            <Button asChild size="lg" variant="secondary">
               <Link to="/services">
                 <span className="text-xs font-medium uppercase tracking-widest-plus">
                   Explore Our Expertise
@@ -125,7 +127,7 @@ const Home: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-serif mb-8">Ready to elevate your property?</h2>
               <Button asChild size="xl" variant="inverse">
                 <Link to="/contact?source=home-bottom-cta">
-                  <span className="text-xs uppercase tracking-widest-plus">Begin Your Inquiry</span>
+                  <span className="text-xs uppercase tracking-widest-plus text-white">Begin Your Inquiry</span>
                 </Link>
               </Button>
           </div>

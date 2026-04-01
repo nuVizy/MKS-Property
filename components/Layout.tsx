@@ -8,70 +8,84 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === '/';
-  const isHeroMode = isHome && !scrolled;
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const frame = window.requestAnimationFrame(() => {
+      setIsMenuOpen(false);
+    });
 
-  // Close menu when route changes is handled by onClick on links to avoid cascading renders
+    return () => window.cancelAnimationFrame(frame);
+  }, [location.pathname, location.search]);
+
+  useEffect(() => {
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    }
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    };
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Properties', path: '/properties' },
-    { name: 'Rates', path: '/rates' },
     { name: 'Photography', path: '/photography' },
     { name: 'Contact', path: '/contact' },
   ];
 
   const leftNavLinks = navLinks.slice(0, 3);
   const rightNavLinks = navLinks.slice(3);
-  const desktopLinkClass = `font-nav text-sm tracking-[0.16em] uppercase font-light leading-none transition-colors relative group py-1.5 ${
-    isHeroMode
-      ? 'text-white hover:text-white/80 drop-shadow-[0_2px_12px_rgba(6,63,71,0.35)]'
-      : 'text-brand-charcoal hover:text-brand-charcoal/70'
-  }`;
-  const desktopContactClass = `inline-flex items-center justify-center border px-4 py-3 text-[10px] uppercase tracking-[0.24em] font-medium transition-colors ${
-    isHeroMode
-      ? 'border-white/40 text-white hover:border-white hover:bg-white hover:text-brand-charcoal'
-      : location.pathname === '/contact'
-        ? 'border-brand-charcoal bg-brand-charcoal text-white'
-        : 'border-brand-charcoal/16 text-brand-charcoal hover:border-brand-charcoal hover:bg-brand-charcoal hover:text-white'
-  }`;
-  const mobileButtonClass = `lg:hidden z-50 focus:outline-none transition-colors ${
-    isHeroMode ? 'text-white hover:text-white/80' : 'text-brand-charcoal hover:text-brand-charcoal/70'
-  }`;
+  const desktopLinkClass =
+    'font-nav text-sm tracking-[0.16em] uppercase font-light leading-none text-brand-gold transition-colors relative group py-1.5 hover:text-brand-gold/72';
+  const desktopContactClass =
+    location.pathname === '/contact'
+      ? 'inline-flex items-center justify-center border border-brand-gold bg-brand-gold px-4 py-3 text-[10px] font-medium uppercase tracking-[0.24em] text-white shadow-[0_12px_28px_rgba(6,63,71,0.12)] transition-shadow duration-200'
+      : 'inline-flex items-center justify-center border border-brand-gold/18 px-4 py-3 text-[10px] font-medium uppercase tracking-[0.24em] text-brand-gold transition-shadow duration-200 hover:border-brand-gold hover:bg-brand-gold hover:text-white hover:shadow-[0_12px_28px_rgba(6,63,71,0.12)]';
+  const mobileButtonClass = 'lg:hidden z-50 text-brand-gold transition-colors focus:outline-none hover:text-brand-gold/72';
+  const desktopLogoClass = 'w-auto';
+  const mobileLogoClass = 'w-auto';
 
   return (
     <div className="flex flex-col min-h-screen font-sans text-brand-charcoal selection:bg-brand-gold selection:text-white">
       {/* Navigation */}
       <nav
-        className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${
-          isHeroMode
-            ? 'bg-transparent py-2'
-            : 'bg-white/95 backdrop-blur-md py-2 border-b border-brand-charcoal/10 shadow-[0_10px_40px_rgba(6,63,71,0.08)]'
-        }`}
+        className="fixed w-full z-50 border-b border-brand-charcoal/10 bg-white py-2.5 shadow-[0_10px_40px_rgba(6,63,71,0.08)]"
       >
-        <div className="site-frame flex items-center justify-between md:block">
+        <div className="site-frame flex items-center justify-between gap-4 lg:block">
           <Link to="/" className="z-50 group lg:hidden" onClick={() => setIsMenuOpen(false)}>
             <img
               src="/MKS%20PM.png"
               alt="MKS Property Management"
-              className={`w-auto transition-all duration-500 ${isHeroMode ? 'h-14' : 'h-11'}`}
+              className={`${mobileLogoClass} h-11 sm:h-12`}
             />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center gap-6 xl:gap-10">
+          <div className="hidden items-center gap-6 text-brand-gold xl:gap-10 lg:grid lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
             <div className="flex min-w-0 justify-end items-center gap-4 xl:gap-6">
               {leftNavLinks.map((link) => (
                 <Link
@@ -80,7 +94,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   className={desktopLinkClass}
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-0 h-[1px] transition-all duration-300 ease-out ${isHeroMode ? 'bg-white/80' : 'bg-brand-gold'} ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  <span className={`absolute bottom-0 left-0 h-[1px] bg-brand-gold transition-all duration-300 ease-out ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </Link>
               ))}
             </div>
@@ -89,7 +103,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <img
                 src="/MKS%20PM.png"
                 alt="MKS Property Management"
-                className={`w-auto transition-all duration-500 ${isHeroMode ? 'h-28 xl:h-32' : 'h-16 xl:h-20'}`}
+                className={`${desktopLogoClass} h-16 xl:h-20`}
               />
             </Link>
 
@@ -105,12 +119,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                   </Link>
                 ) : (
                   <Link
-                    key={link.name}
-                    to={link.path}
-                    className={desktopLinkClass}
-                  >
-                    {link.name}
-                    <span className={`absolute bottom-0 left-0 h-[1px] transition-all duration-300 ease-out ${isHeroMode ? 'bg-white/80' : 'bg-brand-gold'} ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                  key={link.name}
+                  to={link.path}
+                  className={desktopLinkClass}
+                >
+                  {link.name}
+                    <span className={`absolute bottom-0 left-0 h-[1px] bg-brand-gold transition-all duration-300 ease-out ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                   </Link>
                 )
               ))}
@@ -119,37 +133,87 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             className={mobileButtonClass}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav-drawer"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
           >
             {isMenuOpen ? <X size={24} strokeWidth={1} /> : <Menu size={24} strokeWidth={1} />}
           </button>
         </div>
+      </nav>
 
-        {/* Mobile Menu Overlay */}
-        <div
-          className={`fixed inset-0 bg-white z-40 transform transition-transform duration-700 cubic-bezier(0.16, 1, 0.3, 1) flex items-center justify-center ${
+      {/* Mobile Menu Drawer */}
+      <div
+        className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-500 ${
+          isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
+        }`}
+        aria-hidden={!isMenuOpen}
+      >
+        <button
+          type="button"
+          className="absolute inset-0 bg-brand-charcoal/45 backdrop-blur-[2px]"
+          onClick={() => setIsMenuOpen(false)}
+          aria-label="Close navigation backdrop"
+        />
+
+        <aside
+          id="mobile-nav-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+          className={`absolute inset-y-0 right-0 flex min-h-full w-full max-w-full flex-col overflow-y-auto bg-white px-7 pb-8 pt-24 shadow-[-24px_0_60px_rgba(6,63,71,0.14)] transition-transform duration-500 ease-out sm:w-[min(88vw,24rem)] sm:border-l sm:border-brand-charcoal/10 sm:px-8 ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          <div className="flex flex-col space-y-10 text-center">
-            {navLinks.map((link, index) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={() => setIsMenuOpen(false)}
-                className="font-nav text-[2.5rem] font-light tracking-[0.08em] leading-none text-brand-charcoal hover:text-brand-charcoal/70 transition-colors transform hover:translate-x-2 duration-300"
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                {link.name}
-              </Link>
-            ))}
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.3em] text-brand-charcoal/45">
+              Navigation
+            </p>
+            <div className="mt-8 flex flex-col">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`border-b border-brand-charcoal/10 py-4 font-nav text-[1.9rem] leading-none tracking-[0.06em] transition-colors sm:text-[2.2rem] ${
+                    location.pathname === link.path
+                      ? 'text-brand-gold'
+                      : 'text-brand-charcoal hover:text-brand-gold'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </nav>
+
+          <div className="mt-auto border-t border-brand-charcoal/10 pt-6">
+            <p className="text-[10px] uppercase tracking-[0.3em] text-brand-charcoal/45">Connect</p>
+            <div className="mt-5 space-y-4 text-sm font-light text-brand-charcoal/78">
+              <a
+                href="mailto:mks.cyservices@gmail.com"
+                className="flex items-center gap-3 transition-colors hover:text-brand-gold"
+              >
+                <Mail size={16} className="text-brand-charcoal/45" />
+                mks.cyservices@gmail.com
+              </a>
+              <a
+                href="tel:+35799156137"
+                className="flex items-center gap-3 transition-colors hover:text-brand-gold"
+              >
+                <Phone size={16} className="text-brand-charcoal/45" />
+                +357 99156137
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
 
       {/* Main Content */}
-      <main className={`flex-grow ${isHome ? '' : 'pt-24 md:pt-32'}`}>
+      <main className={`flex-grow ${isHome ? '' : 'pt-24 sm:pt-28 lg:pt-32'}`}>
         {children}
       </main>
 
