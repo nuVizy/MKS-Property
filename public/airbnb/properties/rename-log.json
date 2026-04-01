@@ -1,0 +1,149 @@
+[
+  {
+    "id": "1485291663452408306",
+    "oldFolder": "public/airbnb/properties/1485291663452408306-rental-unit-in-chlorakas-3br-4beds-1bath",
+    "newFolder": "public/airbnb/properties/1485291663452408306-chlorakas-aetheria-3br",
+    "title": "Rental unit in Chlorakas · ★4.88 · 3 bedrooms · 4 beds · 1 bathroom",
+    "description": "Aetheria 3BR"
+  },
+  {
+    "id": "1440538987886612281",
+    "oldFolder": "public/airbnb/properties/1440538987886612281-rental-unit-in-paphos-2br-4beds-2bath",
+    "newFolder": "public/airbnb/properties/1440538987886612281-paphos-anna-s-place-2b-paphos-pool",
+    "title": "Rental unit in Paphos · ★5.0 · 2 bedrooms · 4 beds · 2 bathrooms",
+    "description": "Anna's Place 2B, Paphos, Pool"
+  },
+  {
+    "id": "1222110000752913692",
+    "oldFolder": "public/airbnb/properties/1222110000752913692-rental-unit-in-paphos-1br-2beds-1bath-4-85",
+    "newFolder": "public/airbnb/properties/1222110000752913692-paphos-diana-hats-1b-pool-paphos-center",
+    "title": "Rental unit in Paphos · ★4.85 · 1 bedroom · 2 beds · 1 bathroom",
+    "description": "Diana HATS 1B, Pool, Paphos Center"
+  },
+  {
+    "id": "1261566638662505429",
+    "oldFolder": "public/airbnb/properties/1261566638662505429-rental-unit-in-paphos-1br-2beds-1bath-a",
+    "newFolder": "public/airbnb/properties/1261566638662505429-paphos-eden-serenity-1b-paphos-pool",
+    "title": "Rental unit in Paphos · 1 bedroom · 2 beds · 1 bathroom",
+    "description": "Eden Serenity 1B, Paphos, Pool"
+  },
+  {
+    "id": "1590372837535268533",
+    "oldFolder": "public/airbnb/properties/1590372837535268533-rental-unit-in-paphos-1br-2beds-1bath-b",
+    "newFolder": "public/airbnb/properties/1590372837535268533-paphos-elena-1b-city-center-pool-walk-to-the-beach",
+    "title": "Rental unit in Paphos · 1 bedroom · 2 beds · 1 bathroom",
+    "description": "Elena 1B, City Center, Pool, Walk to the Beach"
+  },
+  {
+    "id": "1094216761484929797",
+    "oldFolder": "public/airbnb/properties/1094216761484929797-rental-unit-in-paphos-1br-1bed-1bath-5-0",
+    "newFolder": "public/airbnb/properties/1094216761484929797-paphos-faros-beach-seabreeze-1b-pool-gardens-paphos",
+    "title": "Rental unit in Paphos · ★5.0 · 1 bedroom · 1 bed · 1 bathroom",
+    "description": "Faros-Beach Seabreeze 1B, Pool, Gardens, Paphos"
+  },
+  {
+    "id": "1378970812833247752",
+    "oldFolder": "public/airbnb/properties/1378970812833247752-rental-unit-in-paphos-1br-2beds-1bath-4-83",
+    "newFolder": "public/airbnb/properties/1378970812833247752-paphos-horizon-gateway-1b-paphos-pool",
+    "title": "Rental unit in Paphos · ★4.83 · 1 bedroom · 2 beds · 1 bathroom",
+    "description": "Horizon Gateway 1B Paphos Pool"
+  },
+  {
+    "id": "955550280630509153",
+    "oldFolder": "public/airbnb/properties/955550280630509153-townhouse-in-paphos-2br-4beds-2bath",
+    "newFolder": "public/airbnb/properties/955550280630509153-paphos-iris-village-casa-del-sol-2br-pools-parking",
+    "title": "Townhouse in Paphos · ★5.0 · 2 bedrooms · 4 beds · 2 bathrooms",
+    "description": "Iris Village- Casa Del Sol -2BR, Pools, Parking"
+  },
+  {
+    "id": "1368700727851019808",
+    "oldFolder": "public/airbnb/properties/1368700727851019808-rental-unit-in-paphos-1br-1bed-1bath-a",
+    "newFolder": "public/airbnb/properties/1368700727851019808-paphos-lavi-cozy-1b-paphos-balcony-pools",
+    "title": "Rental unit in Paphos · 1 bedroom · 1 bed · 1 bathroom",
+    "description": "Lavi Cozy 1B, Paphos, Balcony, Pools"
+  },
+  {
+    "id": "1104350570237264960",
+    "oldFolder": "public/airbnb/properties/1104350570237264960-rental-unit-in-paphos-2br-2beds-1bath-4-5",
+    "newFolder": "public/airbnb/properties/1104350570237264960-paphos-lavi-la-2b-sea-breeze-paphos",
+    "title": "Rental unit in Paphos · ★4.5 · 2 bedrooms · 2 beds · 1 bathroom",
+    "description": "Lavi La 2B, Sea Breeze, Paphos"
+  },
+  {
+    "id": "1330316061774229257",
+    "oldFolder": "public/airbnb/properties/1330316061774229257-rental-unit-in-paphos-2br-2beds-2bath-4-67",
+    "newFolder": "public/airbnb/properties/1330316061774229257-paphos-lavi-s-haven-2b-paphos-pool",
+    "title": "Rental unit in Paphos · ★4.67 · 2 bedrooms · 2 beds · 2 bathrooms",
+    "description": "Lavi's Haven 2B, Paphos, Pool"
+  },
+  {
+    "id": "1171657509705660880",
+    "oldFolder": "public/airbnb/properties/1171657509705660880-rental-unit-in-chlorakas-2br-3beds-1bath",
+    "newFolder": "public/airbnb/properties/1171657509705660880-chlorakas-pelagos-panorama-2b-sea-view-pool",
+    "title": "Rental unit in Chlorakas · ★4.67 · 2 bedrooms · 3 beds · 1 bathroom",
+    "description": "Pelagos Panorama 2B, Sea View, Pool"
+  },
+  {
+    "id": "1167831576660138047",
+    "oldFolder": "public/airbnb/properties/1167831576660138047-rental-unit-in-paphos-2br-4beds-1-5bath",
+    "newFolder": "public/airbnb/properties/1167831576660138047-paphos-queens-gardens-paradise-vip-pool-mall-sea",
+    "title": "Rental unit in Paphos · ★4.83 · 2 bedrooms · 4 beds · 1.5 bathrooms",
+    "description": "Queens Gardens Paradise VIP, Pool, Mall, Sea"
+  },
+  {
+    "id": "1537645735451721782",
+    "oldFolder": "public/airbnb/properties/1537645735451721782-rental-unit-in-paphos-2br-3beds-1bath-5-0",
+    "newFolder": "public/airbnb/properties/1537645735451721782-paphos-royal-seacrest-luxe-2b-poolside",
+    "title": "Rental unit in Paphos · ★5.0 · 2 bedrooms · 3 beds · 1 bathroom",
+    "description": "Royal Seacrest Luxe 2B Poolside Apartment"
+  },
+  {
+    "id": "1141886512732755821",
+    "oldFolder": "public/airbnb/properties/1141886512732755821-rental-unit-in-paphos-2br-4beds-1bath-5-0",
+    "newFolder": "public/airbnb/properties/1141886512732755821-paphos-royal-seacrest-oasis-pool-side",
+    "title": "Rental unit in Paphos · ★5.0 · 2 bedrooms · 4 beds · 1 bathroom",
+    "description": "Royal-Seacrest Oasis, Pool-Side"
+  },
+  {
+    "id": "1613033678044733136",
+    "oldFolder": "public/airbnb/properties/1613033678044733136-rental-unit-in-paphos-new-2br-3beds-1bath",
+    "newFolder": "public/airbnb/properties/1613033678044733136-paphos-sapphire-oasis",
+    "title": "Rental unit in Paphos · ★New · 2 bedrooms · 3 beds · 1 bathroom",
+    "description": "Sapphire Oasis Apartment"
+  },
+  {
+    "id": "1214402382680112757",
+    "oldFolder": "public/airbnb/properties/1214402382680112757-rental-unit-in-paphos-1br-1bed-1bath-b",
+    "newFolder": "public/airbnb/properties/1214402382680112757-paphos-seaside-orchid-prime-location",
+    "title": "Rental unit in Paphos · 1 bedroom · 1 bed · 1 bathroom",
+    "description": "Seaside Orchid, Prime Location"
+  },
+  {
+    "id": "1092532592107352078",
+    "oldFolder": "public/airbnb/properties/1092532592107352078-rental-unit-in-paphos-2br-2beds-1bath-4-82",
+    "newFolder": "public/airbnb/properties/1092532592107352078-paphos-venus-lighthouse-2b-sea-view-paphos-center",
+    "title": "Rental unit in Paphos · ★4.82 · 2 bedrooms · 2 beds · 1 bathroom",
+    "description": "Venus Lighthouse 2B, Sea-View, Paphos Center"
+  },
+  {
+    "id": "1076077184773702973",
+    "oldFolder": "public/airbnb/properties/1076077184773702973-rental-unit-in-paphos-2br-1bath-4-77",
+    "newFolder": "public/airbnb/properties/1076077184773702973-paphos-venus-seaview-2b-rooftop-prime-location-paphos",
+    "title": "Rental unit in Paphos · ★4.77 · 2 bedrooms · 1 bathroom",
+    "description": "Venus Seaview 2B, Rooftop, Prime location, Paphos"
+  },
+  {
+    "id": "910712179962960278",
+    "oldFolder": "public/airbnb/properties/910712179962960278-home-in-peyia-3br-3beds-2bath",
+    "newFolder": "public/airbnb/properties/910712179962960278-peyia-villa-imperial-private-pool-sea-views-gardens",
+    "title": "Home in Peyia · ★4.92 · 3 bedrooms · 3 beds · 2 bathrooms",
+    "description": "Villa Imperial: Private Pool, Sea Views, Gardens"
+  },
+  {
+    "id": "943289781399719131",
+    "oldFolder": "public/airbnb/properties/943289781399719131-home-in-peyia-3br-4beds-2bath",
+    "newFolder": "public/airbnb/properties/943289781399719131-peyia-villa-marina-sea-views-with-private-pool",
+    "title": "Home in Peyia · ★4.78 · 3 bedrooms · 4 beds · 2 bathrooms",
+    "description": "Villa Marina Sea-Views with Private Pool"
+  }
+]

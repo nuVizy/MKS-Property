@@ -1,0 +1,30 @@
+{
+  "id": "1141886512732755821",
+  "slug": "rental-unit-in-paphos-2br-4beds-1bath-5-0",
+  "sourceUrl": "https://www.airbnb.co.uk/rooms/1141886512732755821?unique_share_id=f1ee55b0-3506-420e-9ba2-8ad2bed252f6&viralityEntryPoint=1&s=76",
+  "imageCount": 3,
+  "title": "Rental unit in Paphos · ★5.0 · 2 bedrooms · 4 beds · 1 bathroom",
+  "description": "Royal-Seacrest Oasis, Pool-Side",
+  "listingName": "Royal-Seacrest Oasis, Pool-Side",
+  "coverImageFilename": "01.jpeg",
+  "propertyType": "Rental unit",
+  "location": "Paphos",
+  "bedrooms": 2,
+  "bathrooms": 1,
+  "beds": 2,
+  "rating": 5,
+  "images": [
+    {
+      "filename": "01.jpeg",
+      "url": "https://a0.muscache.com/im/pictures/miso/Hosting-1141886512732755821/original/d58abb48-9ee7-45e5-a690-987761665e38.jpeg"
+    },
+    {
+      "filename": "02.jpeg",
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0MTg4NjUxMjczMjc1NTgyMQ%3D%3D/original/0648dcc1-a557-447d-a015-9016e56589d0.jpeg"
+    },
+    {
+      "filename": "03.jpeg",
+      "url": "https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MTE0MTg4NjUxMjczMjc1NTgyMQ%3D%3D/original/dc4beee7-0144-433f-9ed3-6e7cda38706b.jpeg"
+    }
+  ]
+}
