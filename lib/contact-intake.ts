@@ -194,14 +194,6 @@ export const ADD_ON_OPTIONS = [
   { value: 'full-visual-suite', label: 'Full visual suite' },
 ] as const satisfies readonly Option[];
 
-export const URGENCY_OPTIONS = [
-  { value: 'asap', label: 'ASAP' },
-  { value: 'within-2-weeks', label: 'Within 2 weeks' },
-  { value: 'within-1-month', label: 'Within 1 month' },
-  { value: 'this-quarter', label: 'This quarter' },
-  { value: 'exploring', label: 'Exploring options' },
-] as const satisfies readonly Option[];
-
 export const BUDGET_RANGE_OPTIONS = [
   { value: 'under-500', label: 'Under €500' },
   { value: '500-1500', label: '€500 to €1,500' },
@@ -209,23 +201,6 @@ export const BUDGET_RANGE_OPTIONS = [
   { value: '5000-10000', label: '€5,000 to €10,000' },
   { value: '10000+', label: '€10,000+' },
   { value: 'scope-first', label: 'Let’s scope it first' },
-] as const satisfies readonly Option[];
-
-export const PROJECT_WINDOW_OPTIONS = [
-  { value: '1-2-weeks', label: '1 to 2 weeks' },
-  { value: '2-4-weeks', label: '2 to 4 weeks' },
-  { value: '1-2-months', label: '1 to 2 months' },
-  { value: '3-plus-months', label: '3+ months' },
-  { value: 'flexible', label: 'Flexible' },
-] as const satisfies readonly Option[];
-
-export const REFERRAL_SOURCE_OPTIONS = [
-  { value: 'google', label: 'Google / search' },
-  { value: 'instagram', label: 'Instagram / social' },
-  { value: 'referral', label: 'Personal referral' },
-  { value: 'returning-client', label: 'Returning client' },
-  { value: 'partner', label: 'Existing partner / supplier' },
-  { value: 'other', label: 'Other' },
 ] as const satisfies readonly Option[];
 
 export const VISUAL_MEDIA_SERVICES: readonly Service[] = ['photography', 'drone-video'];
@@ -249,7 +224,7 @@ export const CONTACT_STEPS = [
   {
     id: 'currentSituation',
     label: 'Current Situation',
-    description: 'What is happening now, what hurts, and what outcome matters most?',
+    description: 'What is happening now and which issues need attention most?',
   },
   {
     id: 'serviceDetails',
@@ -259,7 +234,7 @@ export const CONTACT_STEPS = [
   {
     id: 'timelineBudget',
     label: 'Timeline + Budget',
-    description: 'Help us understand urgency, timing, and commercial fit.',
+    description: 'Help us understand timing and commercial fit.',
   },
   {
     id: 'finalNotes',
@@ -289,9 +264,8 @@ export interface ContactFormState {
   bookingLinks: string;
   currentManagementSetup: string;
   existingBookingPlatforms: string;
-  biggestPainPoints: string;
+  currentIssues: string;
   whatAlreadyWorking: string;
-  targetOutcome: string;
   reservationPlatformCoverage: string;
   reservationGuestCommunicationNeeds: string;
   reservationOccupancyGoals: string;
@@ -310,11 +284,8 @@ export interface ContactFormState {
   photographyCurrentVisualsStatus: string;
   photographyAddOnInterest: string;
   desiredStartDate: string;
-  urgency: string;
   budgetRange: string;
-  idealProjectWindow: string;
   additionalContext: string;
-  referralSource: string;
   consent: boolean;
   honeypot: string;
   sourceTag: string;
@@ -339,9 +310,8 @@ export const INITIAL_CONTACT_FORM_STATE: ContactFormState = {
   bookingLinks: '',
   currentManagementSetup: '',
   existingBookingPlatforms: '',
-  biggestPainPoints: '',
+  currentIssues: '',
   whatAlreadyWorking: '',
-  targetOutcome: '',
   reservationPlatformCoverage: '',
   reservationGuestCommunicationNeeds: '',
   reservationOccupancyGoals: '',
@@ -360,11 +330,8 @@ export const INITIAL_CONTACT_FORM_STATE: ContactFormState = {
   photographyCurrentVisualsStatus: '',
   photographyAddOnInterest: '',
   desiredStartDate: '',
-  urgency: '',
   budgetRange: '',
-  idealProjectWindow: '',
   additionalContext: '',
-  referralSource: '',
   consent: false,
   honeypot: '',
   sourceTag: '',

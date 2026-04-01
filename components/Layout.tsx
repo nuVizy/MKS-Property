@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <img
               src="/MKS%20PM.png"
               alt="MKS Property Management"
-              className={`${mobileLogoClass} h-11 sm:h-12`}
+              className={`${mobileLogoClass} h-[3.3rem] sm:h-[3.6rem]`}
             />
           </Link>
 
@@ -99,7 +99,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
               <img
                 src="/MKS%20PM.png"
                 alt="MKS Property Management"
-                className={`${desktopLogoClass} h-16 xl:h-20`}
+                className={`${desktopLogoClass} h-[4.8rem] xl:h-24`}
               />
             </Link>
 

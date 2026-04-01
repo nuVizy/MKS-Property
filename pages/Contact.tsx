@@ -36,14 +36,11 @@ import {
   parseServiceParam,
   PHOTOGRAPHY_PACKAGE_OPTIONS,
   PHOTOGRAPHY_VISUALS_OPTIONS,
-  PROJECT_WINDOW_OPTIONS,
   PROPERTY_COUNT_OPTIONS,
   PROPERTY_TYPE_OPTIONS,
-  REFERRAL_SOURCE_OPTIONS,
   RESERVATION_PLATFORM_OPTIONS,
   SERVICE_OPTIONS,
   Service,
-  URGENCY_OPTIONS,
   VISUAL_MEDIA_SERVICES,
 } from '@/lib/contact-intake';
 import { cn } from '@/lib/utils';
@@ -112,8 +109,7 @@ const STEP_FIELD_MAP: Record<ContactStepId, Array<keyof ContactFormState | 'serv
   currentSituation: [
     'currentManagementSetup',
     'existingBookingPlatforms',
-    'biggestPainPoints',
-    'targetOutcome',
+    'currentIssues',
   ],
   serviceDetails: [
     ...SERVICE_FIELD_MAP['reservations-hosting'],
@@ -122,7 +118,7 @@ const STEP_FIELD_MAP: Record<ContactStepId, Array<keyof ContactFormState | 'serv
     ...SERVICE_FIELD_MAP['accessorising-design'],
     ...SERVICE_FIELD_MAP.photography,
   ],
-  timelineBudget: ['desiredStartDate', 'urgency', 'budgetRange', 'idealProjectWindow'],
+  timelineBudget: ['desiredStartDate', 'budgetRange'],
   finalNotes: ['consent'],
 };
 
@@ -375,7 +371,7 @@ function Contact() {
             </h1>
             <p className="mt-8 max-w-2xl font-light leading-loose text-white/78 text-lg">
               This is designed as a private concierge brief, not a generic contact form. Share
-              the services you need, the condition of the property, and the outcome you want.
+              the services you need, the condition of the property, and the issues you want solved.
               We’ll tailor the follow-up around what you select.
             </p>
 
@@ -441,7 +437,7 @@ function Contact() {
                     Begin When Ready
                   </p>
                   <h2 className="mt-5 max-w-3xl text-4xl font-serif leading-tight text-brand-charcoal md:text-5xl">
-                    Tell us the service mix, the property context, and the outcome you want.
+                    Tell us the service mix, the property context, and the issues you need solved.
                   </h2>
                   <p className="mt-6 max-w-2xl font-light leading-loose text-brand-charcoal/72">
                     Once you begin, the page keeps everything in one guided flow. You can move
@@ -821,11 +817,11 @@ function Contact() {
                         </div>
 
                         <TextAreaField
-                          label="Biggest pain points"
-                          name="biggestPainPoints"
-                          value={formState.biggestPainPoints}
-                          onChange={(value) => updateField('biggestPainPoints', value)}
-                          error={errors.biggestPainPoints}
+                          label="Current issues"
+                          name="currentIssues"
+                          value={formState.currentIssues}
+                          onChange={(value) => updateField('currentIssues', value)}
+                          error={errors.currentIssues}
                           rows={4}
                         />
                         <TextAreaField
@@ -836,14 +832,6 @@ function Contact() {
                           error={errors.whatAlreadyWorking}
                           hint="Optional, but helpful for protecting what is already strong."
                           optional
-                          rows={4}
-                        />
-                        <TextAreaField
-                          label="Target outcome"
-                          name="targetOutcome"
-                          value={formState.targetOutcome}
-                          onChange={(value) => updateField('targetOutcome', value)}
-                          error={errors.targetOutcome}
                           rows={4}
                         />
                       </div>
@@ -1075,28 +1063,12 @@ function Contact() {
                           error={errors.desiredStartDate}
                         />
                         <SelectField
-                          label="Urgency"
-                          name="urgency"
-                          value={formState.urgency}
-                          onChange={(value) => updateField('urgency', value)}
-                          options={URGENCY_OPTIONS}
-                          error={errors.urgency}
-                        />
-                        <SelectField
                           label="Budget range"
                           name="budgetRange"
                           value={formState.budgetRange}
                           onChange={(value) => updateField('budgetRange', value)}
                           options={BUDGET_RANGE_OPTIONS}
                           error={errors.budgetRange}
-                        />
-                        <SelectField
-                          label="Ideal project window"
-                          name="idealProjectWindow"
-                          value={formState.idealProjectWindow}
-                          onChange={(value) => updateField('idealProjectWindow', value)}
-                          options={PROJECT_WINDOW_OPTIONS}
-                          error={errors.idealProjectWindow}
                         />
                       </div>
                     )}
@@ -1112,15 +1084,6 @@ function Contact() {
                           hint="Optional. Share anything that would help us prepare better."
                           optional
                           rows={5}
-                        />
-                        <SelectField
-                          label="Referral source"
-                          name="referralSource"
-                          value={formState.referralSource}
-                          onChange={(value) => updateField('referralSource', value)}
-                          options={REFERRAL_SOURCE_OPTIONS}
-                          error={errors.referralSource}
-                          optional
                         />
 
                         {sourceSummary && (
@@ -1430,8 +1393,7 @@ function validateStep(stepId: ContactStepId, formState: ContactFormState): FormE
   if (stepId === 'currentSituation') {
     requireField('currentManagementSetup', 'Select the current management setup.');
     requireField('existingBookingPlatforms', 'Tell us which booking platforms are currently in use.');
-    requireField('biggestPainPoints', 'Tell us what the main pain points are.');
-    requireField('targetOutcome', 'Tell us what outcome you want from this engagement.');
+    requireField('currentIssues', 'Tell us what the current issues are.');
   }
 
   if (stepId === 'serviceDetails') {
@@ -1485,9 +1447,7 @@ function validateStep(stepId: ContactStepId, formState: ContactFormState): FormE
 
   if (stepId === 'timelineBudget') {
     requireField('desiredStartDate', 'Please add the desired start date.');
-    requireField('urgency', 'Select the urgency.');
     requireField('budgetRange', 'Select the budget range.');
-    requireField('idealProjectWindow', 'Select the ideal project window.');
   }
 
   if (stepId === 'finalNotes' && !formState.consent) {
@@ -1520,9 +1480,8 @@ function buildSubmissionPayload(formState: ContactFormState) {
     bookingLinks: formState.bookingLinks.trim(),
     currentManagementSetup: formState.currentManagementSetup,
     existingBookingPlatforms: formState.existingBookingPlatforms.trim(),
-    biggestPainPoints: formState.biggestPainPoints.trim(),
+    currentIssues: formState.currentIssues.trim(),
     whatAlreadyWorking: formState.whatAlreadyWorking.trim(),
-    targetOutcome: formState.targetOutcome.trim(),
     reservationPlatformCoverage: formState.reservationPlatformCoverage,
     reservationGuestCommunicationNeeds: formState.reservationGuestCommunicationNeeds.trim(),
     reservationOccupancyGoals: formState.reservationOccupancyGoals.trim(),
@@ -1541,11 +1500,8 @@ function buildSubmissionPayload(formState: ContactFormState) {
     photographyCurrentVisualsStatus: formState.photographyCurrentVisualsStatus,
     photographyAddOnInterest: formState.photographyAddOnInterest,
     desiredStartDate: formState.desiredStartDate,
-    urgency: formState.urgency,
     budgetRange: formState.budgetRange,
-    idealProjectWindow: formState.idealProjectWindow,
     additionalContext: formState.additionalContext.trim(),
-    referralSource: formState.referralSource,
     consentToContact: formState.consent ? 'Yes' : 'No',
     website: formState.honeypot.trim(),
   };
