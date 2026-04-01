@@ -61,10 +61,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const rightNavLinks = navLinks.slice(3);
   const desktopLinkClass =
     'font-nav text-sm tracking-[0.16em] uppercase font-light leading-none text-brand-gold transition-colors relative group py-1.5 hover:text-brand-gold/72';
-  const desktopContactClass =
-    location.pathname === '/contact'
-      ? 'inline-flex items-center justify-center border border-brand-gold bg-brand-gold px-4 py-3 text-[10px] font-medium uppercase tracking-[0.24em] text-white shadow-[0_12px_28px_rgba(6,63,71,0.12)] transition-shadow duration-200'
-      : 'inline-flex items-center justify-center border border-brand-gold/18 px-4 py-3 text-[10px] font-medium uppercase tracking-[0.24em] text-brand-gold transition-shadow duration-200 hover:border-brand-gold hover:bg-brand-gold hover:text-white hover:shadow-[0_12px_28px_rgba(6,63,71,0.12)]';
   const mobileButtonClass = 'lg:hidden z-50 text-brand-gold transition-colors focus:outline-none hover:text-brand-gold/72';
   const desktopLogoClass = 'w-auto';
   const mobileLogoClass = 'w-auto';
@@ -109,24 +105,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             <div className="flex min-w-0 justify-start items-center gap-4 xl:gap-6">
               {rightNavLinks.map((link) => (
-                link.path === '/contact' ? (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    className={desktopContactClass}
-                  >
-                    {link.name}
-                  </Link>
-                ) : (
-                  <Link
+                <Link
                   key={link.name}
                   to={link.path}
                   className={desktopLinkClass}
                 >
                   {link.name}
-                    <span className={`absolute bottom-0 left-0 h-[1px] bg-brand-gold transition-all duration-300 ease-out ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                  </Link>
-                )
+                  <span className={`absolute bottom-0 left-0 h-[1px] bg-brand-gold transition-all duration-300 ease-out ${location.pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                </Link>
               ))}
             </div>
           </div>
