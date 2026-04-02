@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, Bath, BedDouble, Building2, MapPin, Star } from 'lucide-react';
 
+import { OptimizedImage } from '@/components/ui/optimized-image';
+
 interface PropertyIndexEntry {
   id: string;
   slug: string;
@@ -321,11 +323,12 @@ const Properties: React.FC = () => {
                   className="group bg-white border border-brand-charcoal/10 overflow-hidden hover:border-brand-gold/30 hover:shadow-[0_24px_60px_rgba(6,63,71,0.08)] transition-all duration-500"
                 >
                   <div className="relative h-72 overflow-hidden">
-                    <img
+                    <OptimizedImage
                       src={property.coverImage}
                       alt={property.displayName}
-                      loading="lazy"
-                      decoding="async"
+                      width={1200}
+                      height={800}
+                      sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                       className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/65 via-brand-charcoal/12 to-transparent"></div>

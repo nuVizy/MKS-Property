@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Mail, Phone } from 'lucide-react';
 
+import { OptimizedImage } from '@/components/ui/optimized-image';
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -73,9 +75,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       >
         <div className="site-frame flex items-center justify-between gap-4 lg:block">
           <Link to="/" className="z-50 group lg:hidden" onClick={() => setIsMenuOpen(false)}>
-            <img
+            <OptimizedImage
               src="/MKS%20PM.png"
               alt="MKS Property Management"
+              priority
+              sizes="(max-width: 640px) 3.6rem, 3.3rem"
               className={`${mobileLogoClass} h-[3.3rem] sm:h-[3.6rem]`}
             />
           </Link>
@@ -96,9 +100,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </div>
 
             <Link to="/" className="z-50 group justify-self-center" onClick={() => setIsMenuOpen(false)}>
-              <img
+              <OptimizedImage
                 src="/MKS%20PM.png"
                 alt="MKS Property Management"
+                priority
+                sizes="(min-width: 1280px) 24rem, 19rem"
                 className={`${desktopLogoClass} h-[4.8rem] xl:h-24`}
               />
             </Link>
@@ -209,9 +215,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.25fr_0.95fr_0.9fr] md:gap-8">
             <div>
               <Link to="/" className="inline-block mb-8">
-                <img
+                <OptimizedImage
                   src="/MKS%20PM.png"
                   alt="MKS Property Management"
+                  sizes="16rem"
                   className="h-16 w-auto brightness-0 invert"
                 />
               </Link>

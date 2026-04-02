@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { OptimizedImage } from '@/components/ui/optimized-image';
+
 const Services: React.FC = () => {
   const servicePillars = [
     'Owner-first planning',
@@ -89,9 +91,12 @@ const Services: React.FC = () => {
 
             <div className="order-1 lg:order-2 relative pl-0 md:pl-8">
               <div className="absolute -inset-4 bg-brand-charcoal/8 z-0 transform translate-x-4 translate-y-4"></div>
-              <img
+              <OptimizedImage
                 src="https://picsum.photos/id/48/800/1000"
                 alt="Interior Design"
+                width={800}
+                height={1000}
+                sizes="(min-width: 1024px) 52vw, 100vw"
                 className="w-full h-[460px] md:h-[620px] object-cover relative z-10 shadow-[0_24px_60px_rgba(6,63,71,0.12)]"
               />
             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { OptimizedImage } from '@/components/ui/optimized-image';
 
 const Home: React.FC = () => {
   return (
@@ -10,9 +11,15 @@ const Home: React.FC = () => {
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
         {/* Background Image Parallax-ish */}
         <div className="absolute inset-0 z-0">
-          <div
-            className="absolute inset-[-1.75rem] scale-[1.04] bg-cover bg-center blur-[3px]"
-            style={{ backgroundImage: "url('/pexels-the-ghazi-2152398165-33314763.jpg')" }}
+          <OptimizedImage
+            src="/pexels-the-ghazi-2152398165-33314763.jpg"
+            alt=""
+            aria-hidden="true"
+            priority
+            width={1600}
+            height={900}
+            sizes="100vw"
+            className="absolute inset-[-1.75rem] h-[calc(100%+3.5rem)] w-[calc(100%+3.5rem)] scale-[1.04] object-cover object-center blur-[3px]"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_36%)]" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/62 via-black/28 to-transparent" />
@@ -86,7 +93,7 @@ const Home: React.FC = () => {
                   {/* Item 1 */}
                   <div className="md:col-span-4 relative group overflow-hidden cursor-pointer h-[360px] md:h-[620px]">
                       <div className="absolute inset-0 bg-brand-charcoal/20 group-hover:bg-brand-charcoal/38 transition-colors z-10 duration-500"></div>
-                      <img src="https://images.pexels.com/photos/2995012/pexels-photo-2995012.jpeg" alt="Design" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                      <OptimizedImage src="https://images.pexels.com/photos/2995012/pexels-photo-2995012.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Design" width={900} height={1200} sizes="(min-width: 768px) 33vw, 100vw" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                       <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
                           <span className="text-white/80 text-[10px] uppercase tracking-widest mb-2 block transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">Service 01</span>
                           <h3 className="text-white text-3xl font-serif italic tracking-wide mb-2">Interior Design</h3>
@@ -97,7 +104,7 @@ const Home: React.FC = () => {
                   {/* Item 2 */}
                   <div className="md:col-span-4 relative group overflow-hidden cursor-pointer h-[360px] md:h-[620px] shadow-[0_24px_60px_rgba(6,63,71,0.12)]">
                        <div className="absolute inset-0 bg-brand-charcoal/20 group-hover:bg-brand-charcoal/38 transition-colors z-10 duration-500"></div>
-                      <img src="/hands-typing-on-laptop.jpg" alt="Hands typing on a laptop" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                      <OptimizedImage src="/hands-typing-on-laptop.jpg" alt="Hands typing on a laptop" width={900} height={1200} sizes="(min-width: 768px) 33vw, 100vw" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                       <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
                           <span className="text-white/80 text-[10px] uppercase tracking-widest mb-2 block transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">Service 02</span>
                           <h3 className="text-white text-3xl font-serif italic tracking-wide mb-2">Reservations</h3>
@@ -108,7 +115,7 @@ const Home: React.FC = () => {
                   {/* Item 3 */}
                   <div className="md:col-span-4 relative group overflow-hidden cursor-pointer h-[360px] md:h-[620px]">
                        <div className="absolute inset-0 bg-brand-charcoal/20 group-hover:bg-brand-charcoal/38 transition-colors z-10 duration-500"></div>
-                      <img src="/services1.png" alt="Premium care service" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                      <OptimizedImage src="/services1.png" alt="Premium care service" width={900} height={1200} sizes="(min-width: 768px) 33vw, 100vw" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                       <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
                           <span className="text-white/80 text-[10px] uppercase tracking-widest mb-2 block transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">Service 03</span>
                           <h3 className="text-white text-3xl font-serif italic tracking-wide mb-2">Premium Care</h3>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { OptimizedImage } from '@/components/ui/optimized-image';
+
 const About: React.FC = () => {
   return (
     <div className="page-shell fade-in pt-10 md:pt-14">
@@ -7,9 +9,13 @@ const About: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-12 md:gap-16 lg:gap-20 items-center">
           {/* Image Side */}
           <div className="w-full">
-            <img
+            <OptimizedImage
               src="/kaela/mikaela.jpg"
               alt="Mikaela Founder"
+              priority
+              width={900}
+              height={1200}
+              sizes="(min-width: 1024px) 46vw, 100vw"
               className="w-full h-[460px] md:h-[620px] object-cover"
             />
           </div>
