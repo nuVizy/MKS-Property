@@ -40,16 +40,6 @@ const About: React.FC = () => {
               </p>
             </div>
 
-            <div className="mt-12 flex flex-wrap gap-8 md:gap-12 border-t border-brand-charcoal/12 pt-8">
-              <div>
-                <span className="block text-3xl font-serif text-brand-gold mb-1">10+</span>
-                <span className="text-xs uppercase tracking-widest text-brand-charcoal/55">Years Experience</span>
-              </div>
-               <div>
-                <span className="block text-3xl font-serif text-brand-gold mb-1">100%</span>
-                <span className="text-xs uppercase tracking-widest text-brand-charcoal/55">Dedication</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
